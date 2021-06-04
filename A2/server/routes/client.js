@@ -2,9 +2,14 @@ import express from 'express';
 
 const router = express.Router();
 
-/* GET home page. */
-router.get('/', (req, res) => {
-  res.send({ data: 'Hello from Generate-Express' });
-});
+
+/* GET all users */
+// router.get('/', function(req, res, next) {
+//     const sql = "Select * from Client";
+//     con.query(sql, function(err, result){
+//         if (err) throw err;
+//         res.json(result);
+//     });
+// });
 
 export default router;
