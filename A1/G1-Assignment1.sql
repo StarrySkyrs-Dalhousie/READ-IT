@@ -6,7 +6,7 @@ CREATE TABLE `Part` (
   `part_QOH` INT NULL,
 PRIMARY KEY (`partNo`, `currentPrice`),
   UNIQUE INDEX `partNo_UNIQUE` (`partNo` ASC));
-INSERT INTO `part` (`partNo`, `partName`, `partDescription`, `currentPrice`, `part_QOH`) VALUES ('1', 'Gold 1/8 ounces', 'Refined gold from Peru', '78', '12'), ('2', 'Wood', 'Wood from my backyard', '7.99', '103');
+INSERT INTO `Part` (`partNo`, `partName`, `partDescription`, `currentPrice`, `part_QOH`) VALUES ('1', 'Gold 1/8 ounces', 'Refined gold from Peru', '78', '12'), ('2', 'Wood', 'Wood from my backyard', '7.99', '103');
 
 CREATE TABLE `Client` (
   `clientCompId` VARCHAR(255) NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE `Client` (
   `moneyOwed` FLOAT NULL,
   PRIMARY KEY (`clientCompId`),
   UNIQUE INDEX `clientCompName_UNIQUE` (`clientCompName` ASC));
-  INSERT INTO `client` (`clientCompId`, `clientCompName`, `clientCity`, `clientCompPassword`, `moneyOwed`) VALUES ('CL#bf810574b9b7', 'Company A', 'Halifax', 'password', '0.00'), ('CL#4c5658248594', 'Company B', 'Moncton', 'password', '0.00');
+  INSERT INTO `Client` (`clientCompId`, `clientCompName`, `clientCity`, `clientCompPassword`, `moneyOwed`) VALUES ('CL#bf810574b9b7', 'Company A', 'Halifax', 'password', '0.00'), ('CL#4c5658248594', 'Company B', 'Moncton', 'password', '0.00');
 
 CREATE TABLE `Purchase Order` (
   `poNo` VARCHAR(255) NOT NULL,
