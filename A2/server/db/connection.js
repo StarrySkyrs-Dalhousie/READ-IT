@@ -1,16 +1,15 @@
 var mysql = require('mysql');
 
 con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
+  host: "db.cs.dal.ca",
+  user: "acamara",
+  password: "zhgh9GmuqLjfAVMyRr33xFqDQ",
   database: "acamara"
 });
 
-//change database config into your local machine 
-
-con.connect(function(err) {
-      if (err) throw err;
-      console.log("Connected!");
+con.connect(function(err){
+	if (err) throw err;
+	console.log("Connected!");
 });
+
 module.exports = con;
