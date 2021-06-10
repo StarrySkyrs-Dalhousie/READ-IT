@@ -59,4 +59,4 @@ router.get('/pos/:id', function(req, res, next){
   });
 });
 
-export default router;
+module.export = router; 
