@@ -7,18 +7,6 @@ con = mysql.createConnection({
   database: "acamara"
 });
 
-// con = mysql.createConnection({
-//   host: "localhost",
-//   user: "root",
-//   password: "",
-//   database: "acamara"
-// });
-// con = mysql.createConnection({
-//   host: "sql5.freemysqlhosting.net",
-//   user: "sql5414023",
-//   password: "EePL5YLMgd",
-//   database: "sql5414023"
-// });
 con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
