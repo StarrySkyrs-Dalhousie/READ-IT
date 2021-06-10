@@ -42,7 +42,7 @@ router.get('/clients/:id', function(req, res, next){
 
 // List all info about POs.
 router.get('/pos', function(req, res, next) {
-  const sql_pos = "Select * from `purchase Order`";
+  const sql_pos = "Select * from `purchase Order_01`";
   con.query(sql_pos, function(err, result){
     if (err) throw err;
     res.json(result);
