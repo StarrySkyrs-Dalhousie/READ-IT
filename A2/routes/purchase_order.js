@@ -80,8 +80,19 @@ router.get('/return/:id', function(req, res, next){
   });
 })
 
+//update purchase order status back to Created
+router.get('/create/:id', function(req, res, next){
+  const { id } = req.params;
+  var clientCompId = ""+req.body.clientCompId
+  const sql = "UPDATE `purchase order_01` SET `status` = 'Created' WHERE `purchase order_01`.`poNo` = '"+id+"' AND `purchase order_01`.`clientCompId` = '"+clientCompId+"'"
+  con.query(sql, function(err, result){
+    if (err) throw err;
+    res.json(result);
+  });
+})
+
 //creating new purchase order with default set at 0.00 poPrice and date as current date
-router.post('/createPO', function(req, res, next){
+router.post('/add', function(req, res, next){
   var datePO = new Date();
   var date = datePO.getFullYear()+"-"+datePO.getMonth()+"-"+datePO.getDate()
   var poNo = req.body.poNo
