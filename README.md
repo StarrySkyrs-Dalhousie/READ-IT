@@ -23,3 +23,14 @@ Sijia Han @sijia
 7. Execute the script.
 8. Once the scripts shows executed successfully, right-click on the schema name “4140a1g1” on the right Navigator>Schemas panel and select “Refresh All”.
 9. The database is ready and its tables and columns are visible by expanding the arrows under the Navigator panel.
+
+# Running the Application's API (A2)
+
+1. Clone the repository onto local machine.
+2. Connect to Dalhousie server with Cisco VPN Networks.
+3. Open a command-line tool.
+4. Change to A2 folder using the command ‘cd A2’
+5. Install Node.js if your computer doesn't have it using ‘npm install’ to install new dependencies.
+6. Enter ‘npm start’ to start the application process
+7. Server will be running on http://localhost:9001/ 
+8. To access a specific route, type in http://localhost:9001/ in the link + your desired endpoint.
