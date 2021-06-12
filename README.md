@@ -33,4 +33,4 @@ Sijia Han @sijia
 5. Install Node.js if your computer doesn't have it using ‘npm install’ to install new dependencies.
 6. Enter ‘npm start’ to start the application process
 7. Server will be running on http://localhost:9001/ 
-8. To access a specific route, type in http://localhost:9001/ in the link + your desired endpoint.
+8. To access a specific route, type in http://localhost:9001/ in the link + your desired endpoint. The list of endpoints can be found in the assignment documentation submitted on Brightspace.
