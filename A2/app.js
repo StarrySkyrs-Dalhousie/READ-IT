@@ -1,5 +1,4 @@
 var createError = require('http-errors');
-var con = require('./db/connection');
 const cors = require('cors');
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -8,10 +7,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var clientRouter = require('./routes/client');
-var lineRouter = require('./routes/line');
-var partRouter = require('./routes/part');
-var purchaseOrderRouter = require('./routes/purchase_order');
+var clientRouter = require('./routes/client.routes');
+var lineRouter = require('./routes/line.routes');
+var partRouter = require('./routes/part.routes');
+var purchaseOrderRouter = require('./routes/order.routes');
 
 var app = express();
 
@@ -25,6 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(bodyParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use('/clients', clientRouter);
 app.use('/parts', partRouter);
