@@ -1,10 +1,11 @@
 var mysql = require('mysql');
+const config = require("../config/db.config");
 
 con = mysql.createConnection({
-  host: "db.cs.dal.ca",
-  user: "acamara",
-  password: "zhgh9GmuqLjfAVMyRr33xFqDQ",
-  database: "acamara"
+  host: config.HOST,
+  user: config.USER,
+  password: config.PASSWORD,
+  database: config.DATABASE
 });
 
 con.connect(function(err) {
