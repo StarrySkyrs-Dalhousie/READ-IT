@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var uuid = require('react-uuid');
 var con = require('../db/connection')
 
 //get all parts

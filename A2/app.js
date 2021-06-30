@@ -1,11 +1,11 @@
 var createError = require('http-errors');
 const cors = require('cors');
 var express = require('express');
+const path = require('path');
 var bodyParser = require('body-parser');
-
-var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+
 
 var clientRouter = require('./routes/client.routes');
 var lineRouter = require('./routes/line.routes');
@@ -24,7 +24,6 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(bodyParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
@@ -35,11 +34,12 @@ app.use('/pos', purchaseOrderRouter);
 app.use('/client', clientService);
 app.use('/agent', agentService)
 
-// catch 404 and forward to error handler
+app.use('/', function(req, res, next) {
+  res.sendFile(path.join(__dirname+'/index.html'));
+});
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development

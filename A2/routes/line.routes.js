@@ -3,7 +3,7 @@ var router = express.Router();
 var con = require('../db/connection')
 
 //get all line
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
     const sql = 'Select * from line_01';
     con.query(sql, function(err, result){
         if (err) throw err;
@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 });
 
 //get specific line
-router.get('/:id', function(req, res, next) {
+router.get('/:id', function(req, res) {
   const { id } = req.params;
   const sql = 'Select * from line_01 WHERE poNo = "'+id+'"';
   con.query(sql, function(err, result){
@@ -31,6 +31,16 @@ router.post('/add', function(req, res, next){
   con.query(sql, function(err, result){
     if (err) throw err;
     console.log("Adding a line")
+    res.json(result);
+  });
+})
+//remove line 
+router.get('/delete/:id', function(req, res, next){
+  var {id} = req.params;
+  const sql = "DELETE FROM `line_01` WHERE `line_01`.`lineNo` = 19 AND `line_01`.`poNo` = '"+id+"'"
+  con.query(sql, function(err, result){
+    if (err) throw err;
+    console.log("Delete a line")
     res.json(result);
   });
 })
