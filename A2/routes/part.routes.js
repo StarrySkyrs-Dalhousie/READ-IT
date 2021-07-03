@@ -40,7 +40,6 @@ router.get('/update/:id', function(req, res, next){
 
 //add new part
  router.post('/add', function(req, res, next){
-  var partNo = ""+req.body.partNo
   var description = ""+req.body.part_description
   var name = req.body.part_name
   var price = req.body.part_current_price

@@ -34,7 +34,7 @@ router.get('/city/:id', function(req, res) {
 
 //add new client 
 router.post('/add', function(req, res){
-  const sql = 'INSERT INTO `client_01` (`clientCompName`, `clientCity`, `clientCompPassword`, `moneyOwed`) VALUES ('+req.body.name+', '+req.body.city+', '+req.body.password+', '+req.body.owed+');'
+  const sql = 'INSERT INTO `client_01` (`clientCompId`, `clientCompName`, `clientCity`, `clientCompPassword`, `moneyOwed`) VALUES ('+req.body.id+','+req.body.name+', '+req.body.city+', '+req.body.password+', '+req.body.owed+');'
   con.query(sql, function(err, result){
     if (err) throw err;
     res.json(result);
