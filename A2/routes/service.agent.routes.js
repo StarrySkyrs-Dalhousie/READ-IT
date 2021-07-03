@@ -12,18 +12,63 @@ router.get('/client/update/:id', function(req, res, next) {
     });
 });
 
-//update part
-/*TODO Change table structure to make Part table only have partNo as primary key
-Currently cannot change part price
-*/
-router.get('/part/update/:id', function(req, res, next) {
+//update part name
+router.get('/part/name/update/:id', function(req, res, next) {
   const { id } = req.params;
-  const sql = "UPDATE `part_01` SET `partName` = '"+req.body.partName+"', `partDescription` = '"+req.body.partDescription+"', `part_QOH` = '"+req.body.part_QOH+"', `partPicture` = '"+req.body.partPicture+"', WHERE `part_01`.`partNo` = "+id+"";
+  const sql = "UPDATE `part_01` SET `partName` = '"+req.body.partName+"' WHERE `part_01`.`partNo` = '"+id+"'";
   con.query(sql, function(err, result){
       if (err) throw err;
       res.json(result);
   });
 });
+
+//update part current price
+router.get('/part/price/update/:id', function(req, res, next) {
+    const { id } = req.params;
+    const sql = "UPDATE `part_01` SET `currentPrice` = '"+req.body.currentPrice+"' WHERE `part_01`.`partNo` = '"+id+"'";
+    con.query(sql, function(err, result){
+        if (err) throw err;
+        res.json(result);
+    });
+});
+//update part minimum
+router.get('/part/minimum/update/:id', function(req, res, next) {
+    const { id } = req.params;
+    const sql = "UPDATE `part_01` SET `partMinimum` = '"+req.body.partMinimum+"' WHERE `part_01`.`partNo` = '"+id+"'";
+    con.query(sql, function(err, result){
+        if (err) throw err;
+        res.json(result);
+    });
+});
+//update part description
+router.get('/part/description/update/:id', function(req, res, next) {
+    const { id } = req.params;
+    const sql = "UPDATE `part_01` SET `partDescription` = '"+req.body.partDescription+"' WHERE `part_01`.`partNo` = '"+id+"'";
+    con.query(sql, function(err, result){
+        if (err) throw err;
+        res.json(result);
+    });
+});
+//update part picture
+router.get('/part/picture/update/:id', function(req, res, next) {
+    const { id } = req.params;
+    const sql = "UPDATE `part_01` SET `partPicture` = '"+req.body.partPicture+"' WHERE `part_01`.`partNo` = '"+id+"'";
+    con.query(sql, function(err, result){
+        if (err) throw err;
+        res.json(result);
+    });
+});
+//update part quantity on hand
+router.get('/part/quantity/update/:id', function(req, res, next) {
+    const { id } = req.params;
+    const sql = "UPDATE `part_01` SET `part_QOH` = '"+req.body.part_QOH+"' WHERE `part_01`.`partNo` = '"+id+"'";
+    con.query(sql, function(err, result){
+        if (err) throw err;
+        res.json(result);
+    });
+});
+
+
 
 //update purchase order_01
 router.get('/po/process/:id', function(req, res, next) {
