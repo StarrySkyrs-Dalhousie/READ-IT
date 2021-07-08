@@ -9,7 +9,8 @@ import Home from "./pages/client.home.component"
 import Order from "./pages/client.order.component";
 import AuthService from "./services/auth.service";
 import Profile from "./pages/profile.component";
-import Dashboard from "./pages/agent.dashboard.component"
+import Dashboard from "./pages/agent.dashboard.component";
+import About from "./pages/about.component";
 import './App.css';
 
 class App extends React.Component {
@@ -74,7 +75,8 @@ class App extends React.Component {
             <Nav className="mr-auto">
               <Nav.Link style={{margin:"0px 10px 0px 10px"}} href="/">Books 📖</Nav.Link>
               <Nav.Link style={{margin:"0px 10px 0px 10px"}} href="/orders">Orders 📦</Nav.Link>
-              <Nav.Link style={{margin:"0px 10px 0px 10px"}} href="/about">About us ℹ️</Nav.Link>
+              <Nav.Link style={{margin:"0px 10px 0px 10px"}} href="/dashboard">Dashboard ⚙️</Nav.Link>
+              <Nav.Link style={{margin:"0px 10px 0px 10px"}} href="/about">About US ℹ️</Nav.Link>
             
             </Nav>
            
@@ -102,6 +104,12 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/">
                 <Home/>
+              </Route>
+              <Route exact path="/about">
+                <About/>
+              </Route>
+              <Route exact path="/dashboard">
+                <Dashboard/>
               </Route>
               <Route exact path="/orders">
                 <Order/>

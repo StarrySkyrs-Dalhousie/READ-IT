@@ -1,0 +1,35 @@
+#head{
+    animation: headNode infinite 5s linear;
+    transform-origin: center;
+}
+@keyframes headNode {
+    0% {
+      transform: rotate(-7deg);
+    }
+    50% {
+      transform: rotate(-11deg);
+    }
+    100% {
+        transform: rotate(-7deg);
+      }
+  }
+
+#foot{
+    animation: headNode infinite 2s linear;
+    transform-origin: center;
+}
+@keyframes headNode {
+    0% {
+      transform: translateY(0px);
+      transform: rotateY(0deg);
+    }
+    50% {
+        transform: translateY(14.29px);
+        transform: rotateY(17.5deg);
+    }
+    100% {
+        transform: translateY(0.29px);
+        transform: rotateY(0deg);
+      }
+  }
+  

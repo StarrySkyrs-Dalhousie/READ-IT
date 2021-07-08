@@ -14,7 +14,7 @@ export default class Dashboard extends React.Component {
     }
     render(){
         return(
-            <div>
+            <div style={{marginTop: '200px'}}>
                 <p>Agent dashboard</p>
             </div>
         );

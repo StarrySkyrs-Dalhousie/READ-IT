@@ -1,0 +1,25 @@
+#levitate{
+    animation-name: updown;
+    animation-timing-function: linear;
+    animation-duration:  4s;
+    animation-iteration-count: infinite;
+    width: 60%;
+}
+@keyframes updown {
+    0% {
+        transform: translateY(0px);
+    }
+    25% {
+        transform: translateY(15px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    75% {
+        transform: translateY(15px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
