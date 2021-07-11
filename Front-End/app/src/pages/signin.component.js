@@ -58,10 +58,7 @@ export default class Login extends Component {
     if (this.checkBtn.context._errors.length === 0) {
       AuthService.signin(this.state.username, this.state.password).then(
         () => {
-            if(this.props.history !=null){
-                this.props.history.push("/profile");
-            }
-          window.location.href = "/profile"
+          this.props.history.push("/profile");
           window.location.reload();
         },
         error => {

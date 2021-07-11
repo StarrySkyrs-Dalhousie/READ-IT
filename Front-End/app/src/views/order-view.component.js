@@ -1,8 +1,8 @@
 import React from "react"
 import axios from 'axios';
 
-import ProcessOrderForm from '../services/ProcessOrderForm';
-import CancelOrderForm from "../services/CancelOrder";
+import ProcessOrderForm from '../forms/ProcessOrderForm';
+import CancelOrderForm from "../forms/CancelOrder";
 export default class Order extends React.Component{
     constructor(props){
         super(props);

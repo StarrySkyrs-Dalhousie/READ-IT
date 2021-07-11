@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@600&display=swap');
 .App {
   text-align: center;
+ font-family: 'Roboto', sans-serif;
+}
+body{
+  font-family: 'Roboto', sans-serif;
+  color: black;
 }
 
 .App-logo {
@@ -12,7 +19,15 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.theme-dark {
+  --dark-text: #292929;
+  --light-text: #F9F8F8;  
+  --dark-background: #2F4550;
+  --light-background: #586F7C;
+  --accent: #B8DBD9;
+  --button-border: #B8DBD9;
+}
+ 
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -22,6 +37,10 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+.Jumbotron {
+  background-image: url("https://unsplash.com/photos/YLSwjSy7stw");
+  background-size: cover;
 }
 
 .App-link {

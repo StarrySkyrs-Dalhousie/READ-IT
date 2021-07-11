@@ -15,6 +15,18 @@ export default class Announcement extends React.Component {
         }
         return(
             <div style={{marginTop: "100px", backgroundColor:'none',  marginBottom: "50px",padding: "20px"}}>
+                {/* {username!==null && <h1>Welcome back, {currentUser.username}!</h1>}
+                {username===null && <h1>Hi guest,</h1>}
+                {username===null && <p> create an <Link to="/login">account</Link> before placing order </p>}
+                <p>
+                    <strong>Did you know?: </strong>
+                    The world’s tallest book, “Collection of Maritime Rules”, is stored in the Amsterdam Museum. Its height is about 6.4 feet, and it’s over 3 feet wide. Can you imagine the scale of this giant folio!?
+                </p>
+                <p>
+                    <Link to="https://medium.com/@readtoplay/12-amazing-facts-you-didnt-know-about-reading-85f886176a7b">
+                        <Button variant="primary">Learn more</Button>
+                    </Link>
+                </p> */}
                 <Row>
                 <svg style={{width: '100%', height:'fit-content'}} width="891" height="300px" viewBox="0 0 891 621" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="undraw_reading_time_gvg0 1" clip-path="url(#clip0)" filter="url(#filter0_d)">

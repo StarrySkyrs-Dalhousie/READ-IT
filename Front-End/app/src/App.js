@@ -9,8 +9,8 @@ import Home from "./pages/client.home.component"
 import Order from "./pages/client.order.component";
 import AuthService from "./services/auth.service";
 import Profile from "./pages/profile.component";
-import Dashboard from "./pages/agent.dashboard.component";
-import About from "./pages/about.component";
+import Story from "./pages/pdf-story.component";
+import Dashboard from "./pages/agent.dashboard.component"
 import './App.css';
 
 class App extends React.Component {
@@ -66,7 +66,7 @@ class App extends React.Component {
     const {currentUser} = this.state;
     return (
       <div className="App">
-        <Navbar fixed="top" collapseOnSelect expand="lg" bg="light" variant="light">
+        <Navbar fixed="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Navbar.Brand style={{fontFamily:'Zen Tokyo Zoo'}} href="/">
           READ📚IT
         </Navbar.Brand>
@@ -75,9 +75,7 @@ class App extends React.Component {
             <Nav className="mr-auto">
               <Nav.Link style={{margin:"0px 10px 0px 10px"}} href="/">Books 📖</Nav.Link>
               <Nav.Link style={{margin:"0px 10px 0px 10px"}} href="/orders">Orders 📦</Nav.Link>
-              <Nav.Link style={{margin:"0px 10px 0px 10px"}} href="/dashboard">Dashboard ⚙️</Nav.Link>
-              <Nav.Link style={{margin:"0px 10px 0px 10px"}} href="/about">About US ℹ️</Nav.Link>
-            
+              <Nav.Link style={{margin:"0px 10px 0px 10px"}} href="/about">About us ℹ️</Nav.Link>
             </Nav>
            
             <Nav>
@@ -102,14 +100,11 @@ class App extends React.Component {
         <div className="container">
           <BrowserRouter>
             <Switch>
+              <Route exact path="/weekly">
+                <Story/>
+              </Route>
               <Route exact path="/">
                 <Home/>
-              </Route>
-              <Route exact path="/about">
-                <About/>
-              </Route>
-              <Route exact path="/dashboard">
-                <Dashboard/>
               </Route>
               <Route exact path="/orders">
                 <Order/>
@@ -120,9 +115,10 @@ class App extends React.Component {
               <Route exact path="/login">
                 <Login/>
               </Route>
-              <Route exact path="/login">
+              <Route exact path="/dashboard">
                 <Dashboard/>
               </Route>
+              
             </Switch>
           </BrowserRouter>
         </div>

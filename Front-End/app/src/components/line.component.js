@@ -32,6 +32,7 @@ export default class Line extends React.Component{
                         <span  style={{color:'black'}}  class="badge bg-light rounded-pill">Ordering {this.props.unit}</span>
                         <span style={{marginLeft:'10px', color:'black'}} class="badge bg-light rounded-pill">In store {part.part_QOH}</span>
                      </div>
+                  
                  </li>
                 ))}
              </ul>
