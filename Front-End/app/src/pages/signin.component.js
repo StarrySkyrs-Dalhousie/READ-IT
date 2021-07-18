@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
+import "./style.css";
 import {Link} from 'react-router-dom'
 
 import AuthService from "../services/auth.service";
@@ -58,7 +59,6 @@ export default class Login extends Component {
     if (this.checkBtn.context._errors.length === 0) {
       AuthService.signin(this.state.username, this.state.password).then(
         () => {
-          this.props.history.push("/profile");
           window.location.reload();
         },
         error => {

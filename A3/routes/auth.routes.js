@@ -6,8 +6,7 @@ var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 
 router.post('/signup', function(req, res) {
-    const {username, name, city, role} = req.body;
-    const password = bcrypt.hashSync(req.body.password, 6);
+    const {username, name, city, role, password} = req.body;
     const sql = "INSERT INTO `client_01` (`clientCompId`, `clientCompName`, `clientCity`, `clientCompPassword`, `moneyOwed`, `role`) VALUES ('"+username+"', '"+name+"', '"+city+"', '"+password+"', '0.0', '"+role+"')"
     con.query(sql, function(err, result){
         if (err) throw err;

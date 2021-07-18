@@ -53,8 +53,8 @@ export default class OrderListing extends React.Component {
           <div>
             <p style={{ marginTop: "10px" }}>Empty</p>
             <p>
-              Login to your account to place an order{" "}
-              <Link to="/login">Login</Link>
+              No orders{" "}
+              {/* <Link to="/login">Login</Link> */}
             </p>
             <svg
               width="300"

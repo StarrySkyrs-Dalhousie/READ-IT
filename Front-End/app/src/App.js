@@ -13,6 +13,7 @@ import Profile from "./pages/profile.component";
 import Story from "./pages/pdf-story.component";
 import Dashboard from "./pages/agent.dashboard.component"
 import './App.css';
+import SignUp from "./pages/signup.component";
 
 class App extends React.Component {
   constructor(props){
@@ -119,6 +120,9 @@ class App extends React.Component {
               </Route>
               <Route exact path="/dashboard">
                 <Dashboard/>
+              </Route>
+              <Route exact path="/signup">
+                <SignUp/>
               </Route>
               
             </Switch>
