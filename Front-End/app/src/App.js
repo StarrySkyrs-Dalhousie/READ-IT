@@ -2,6 +2,7 @@ import Login from "./pages/signin.component";
 import React from 'react';
 import axios from 'axios';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Nav from 'react-bootstrap/Nav'
@@ -76,6 +77,7 @@ class App extends React.Component {
               <Nav.Link style={{margin:"0px 10px 0px 10px"}} href="/">Books 📖</Nav.Link>
               <Nav.Link style={{margin:"0px 10px 0px 10px"}} href="/orders">Orders 📦</Nav.Link>
               <Nav.Link style={{margin:"0px 10px 0px 10px"}} href="/about">About us ℹ️</Nav.Link>
+              <Nav.Link style={{margin:"0px 10px 0px 10px"}} href="/dashboard">Dashboard</Nav.Link>
             </Nav>
            
             <Nav>
@@ -97,7 +99,7 @@ class App extends React.Component {
           </Navbar.Collapse>
 
         </Navbar>
-        <div className="container">
+        <div style={{maxWidth:'inherit'}} className="container">
           <BrowserRouter>
             <Switch>
               <Route exact path="/weekly">
