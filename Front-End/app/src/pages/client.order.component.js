@@ -33,7 +33,7 @@ export default class OrderListing extends React.Component {
   render() {
     return (
       <div>
-        <h1 style={{ marginTop: "70px" }}>Your orders</h1>
+    
         {this.state.orders.length > 0 ? (
           <ul class="list-group">
             <li class="list-group-item">
@@ -49,12 +49,9 @@ export default class OrderListing extends React.Component {
             </li>
           </ul>
         ) : (
-          <div>
-            <p style={{ marginTop: "10px" }}>Empty</p>
-            <p>
-              No orders{" "}
-              {/* <Link to="/login">Login</Link> */}
-            </p>
+          <div style={{marginTop:"160px"}}>
+    
+         
             <svg
               width="300"
               height="300"
@@ -184,6 +181,7 @@ export default class OrderListing extends React.Component {
                 </clipPath>
               </defs>
             </svg>
+            <h2>404 No order found</h2>
           </div>
         )}
         <Create id={this.state.id} />

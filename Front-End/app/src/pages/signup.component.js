@@ -102,7 +102,7 @@ export default class SignUp extends React.Component{
 render() {
     return (
       <div className="col-md-12">
-        <div style={{background:'transparent', marginBottom: '50px', textAlign:'-webkit-center', marginTop: '80px'}} className="card card-container">
+        <div style={{background:'transparent', marginBottom: '50px', textAlign:'-webkit-center', marginTop: '80px'}}>
           <h3 style={{textAlign: 'center', margin:'10px'}}>Login</h3>
 
           <Form
@@ -117,7 +117,8 @@ render() {
                 type="text"
                 className="form-control"
                 name="username"
-                style={{width:'60%'}}
+                placeholder="Username"
+                style={{width:'250px'}}
                 value={this.state.username}
                 onChange={this.onChangeUsername}
                 validations={[required]}
@@ -130,7 +131,8 @@ render() {
                 type="text"
                 className="form-control"
                 name="username"
-                style={{width:'60%'}}
+                placeholder="Name"
+                style={{width:'250px'}}
                 value={this.state.name}
                 onChange={this.onChangeName}
                 validations={[required]}
@@ -143,7 +145,8 @@ render() {
                 type="text"
                 className="form-control"
                 name="username"
-                style={{width:'60%'}}
+                style={{width:'250px'}}
+                placeholder="ex: Halifax"
                 value={this.state.city}
                 onChange={this.onChangeCity}
                 validations={[required]}
@@ -155,7 +158,8 @@ render() {
                 type="text"
                 className="form-control"
                 name="username"
-                style={{width:'60%'}}
+                placeholder="client or agent"
+                style={{width:'250px'}}
                 value={this.state.role}
                 onChange={this.onChangeRole}
                 validations={[required]}
@@ -168,7 +172,7 @@ render() {
                 type="password"
                 className="form-control"
                 name="password"
-                style={{width:'60%'}}
+                style={{width:'250px'}}
                 value={this.state.password}
                 onChange={this.onChangePassword}
                 validations={[required]}
@@ -177,6 +181,7 @@ render() {
 
             <div className="form-group">
               <button
+              style={{width: 'inherit'}}
                 className="btn btn-primary btn-block"
                 disabled={this.state.loading}
               >
@@ -201,8 +206,8 @@ render() {
               }}
             />
           </Form>
-          <Link to={"/register"} className="nav-link">
-                  Don't have an account yet?
+          <Link to={"/login"} className="nav-link">
+                  Already have an account?
             </Link>
         </div>
       </div>

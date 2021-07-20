@@ -62,6 +62,7 @@ class App extends React.Component {
 
   logOut() {
     AuthService.signout();
+    window.location.href = "http://localhost:3001/login";
   }
   render(){
     const {currentUser} = this.state;
@@ -120,7 +121,7 @@ class App extends React.Component {
               <Route exact path="/dashboard">
                 <Dashboard/>
               </Route>
-              <Route exact path="/signup">
+              <Route exact path="/register">
                 <SignUp/>
               </Route>
               

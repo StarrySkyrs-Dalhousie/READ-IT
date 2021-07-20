@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component} from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
@@ -59,7 +59,7 @@ export default class Login extends Component {
     if (this.checkBtn.context._errors.length === 0) {
       AuthService.signin(this.state.username, this.state.password).then(
         () => {
-          window.location.reload();
+          window.location.href = "http://localhost:3001/";
         },
         error => {
           const resMessage =
@@ -85,7 +85,7 @@ export default class Login extends Component {
   render() {
     return (
       <div className="col-md-12">
-        <div style={{background:'transparent', marginBottom: '50px', textAlign:'-webkit-center', marginTop: '80px'}} className="card card-container">
+        <div style={{background:'transparent', marginBottom: '50px', textAlign:'-webkit-center', marginTop: '150px'}} >
           <h3 style={{textAlign: 'center', margin:'10px'}}>Login</h3>
 
           <Form
@@ -100,7 +100,7 @@ export default class Login extends Component {
                 type="text"
                 className="form-control"
                 name="username"
-                style={{width:'60%'}}
+                style={{width:'200px'}}
                 value={this.state.username}
                 onChange={this.onChangeUsername}
                 validations={[required]}
@@ -113,7 +113,7 @@ export default class Login extends Component {
                 type="password"
                 className="form-control"
                 name="password"
-                style={{width:'60%'}}
+                style={{width:'200px'}}
                 value={this.state.password}
                 onChange={this.onChangePassword}
                 validations={[required]}
@@ -122,6 +122,7 @@ export default class Login extends Component {
 
             <div className="form-group">
               <button
+                style={{width: 'inherit'}}
                 className="btn btn-primary btn-block"
                 disabled={this.state.loading}
               >
