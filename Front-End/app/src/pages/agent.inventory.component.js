@@ -31,7 +31,6 @@ export default class Dashboard extends React.Component {
           width: "100%",
         }}
       >
-        {/* ORDER TABLE */}
         <h2 class="text-left">Client Orders</h2>
         <div class="table-responsive">
           <table class="table table-striped table-hover table-bordered table-sm">

@@ -21,7 +21,7 @@ export default class PartListing extends React.Component{
         return(
             <div class="container">
                 <div class="row">
-                    {this.state.data.map((part)=>(
+                    {this.state.data.map((part, index)=>(
                        <div class="col-sm-3">
                             <Part 
                                 id={part.partNo} 

@@ -1,8 +1,9 @@
 import React from "react"
 import axios from 'axios';
-
+import {Modal, Button, ListGroup} from 'react-bootstrap/'
 import ProcessOrderForm from '../forms/ProcessOrderForm';
 import CancelOrderForm from "../forms/CancelOrder";
+import RemoveLine from "../forms/RemoveLine";
 export default class Order extends React.Component{
     constructor(props){
         super(props);
@@ -21,7 +22,7 @@ export default class Order extends React.Component{
         }
         axios.get(`http://localhost:3000/lines/${id}`)
         .then((res) => {
-            //console.log(res.data);
+            console.log(res.data);
             this.setState({
                 data : res.data
             })
@@ -29,7 +30,7 @@ export default class Order extends React.Component{
     }
     render(){
         return (
-            <div style={{padding:"10px",margin:'10px', border: '1px solid black', boxShadow:'-5px -5px'}} class="row align-items-start">
+            <div style={{padding:"10px",margin:'10px', border: '1px solid black'}}  class="row align-items-start">
     
                         <div class="col">
                         Order#{this.props.id}
@@ -40,7 +41,11 @@ export default class Order extends React.Component{
                  
                         
                         <div class="col">
-                            <a href={`/orders/${this.props.id}`} class="btn btn-light btn-round">Details</a>
+                            <OrderDetail 
+                                id={this.props.id}
+                                poNo={this.props.id}
+                                line={this.state.data}
+                            />
                         </div>
               
                         <div class="col">
@@ -75,3 +80,50 @@ export default class Order extends React.Component{
         );
     }
 }
+function MyVerticallyCenteredModal(props) {
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Order #{props.id} details
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+            <ListGroup>
+                {props.lines.map(line => (
+                    <ListGroup.Item>Part No:{line.partNo} Unit:{line.lineUnit} Price:{line.linePrice} <RemoveLine id={line.lineNo}/></ListGroup.Item>
+                ))}
+            </ListGroup>
+        
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={props.onHide}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
+  
+  function OrderDetail(props) {
+    const [modalShow, setModalShow] = React.useState(false);
+  
+    return (
+      <>
+        <div onClick={() => setModalShow(true)}>
+            <Button>EDIT</Button>
+        </div>
+        
+  
+        <MyVerticallyCenteredModal
+          show={modalShow}
+          lines={props.line}
+          id={props.id}
+          onHide={() => setModalShow(false)}
+        />
+      </>
+    );
+  }

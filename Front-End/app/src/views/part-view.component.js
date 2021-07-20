@@ -45,7 +45,6 @@ function MyVerticallyCenteredModal(props) {
         <Modal.Body>
         <img width="200px" 
                 class="card-image-top" 
-                //src="https://orly-appstore.herokuapp.com/generate?title=Learn%20Computer%20Science&top_text=Get%20access%20to%20all%20the%20tests%20and%20solutions&author=Adama%20Camara&image_code=40&theme=13&guide_text=Steal%20that%20degree%20boy%20&guide_text_placement=bottom_right"
                  src={props.picture} 
                 alt="cube"/>
           <h4>Description</h4>
@@ -68,15 +67,10 @@ function MyVerticallyCenteredModal(props) {
       <>
         <div style={{marginBottom:'20px', radius:"0px"}} onClick={() => setModalShow(true)} class="card">
             <div style={{}} class="card-body">
-                
-            {/* <h5 style={{textAlign:"left"}}><span class="badge bg-secondary">$ {this.props.currentPrice}</span></h5> */}
             <img width="200px" 
                 class="card-image-top" 
-                //src="https://orly-appstore.herokuapp.com/generate?title=Learn%20Computer%20Science&top_text=Get%20access%20to%20all%20the%20tests%20and%20solutions&author=Adama%20Camara&image_code=40&theme=13&guide_text=Steal%20that%20degree%20boy%20&guide_text_placement=bottom_right"
                 src={props.picture} 
                 alt={props.name}/>
-                {/* <p class="card-text">{this.props.description}</p>
-                <AddLine user_id={id} id={this.props.id} price={this.props.currentPrice} /> */}
             </div>
         </div>
         

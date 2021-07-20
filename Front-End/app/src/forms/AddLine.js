@@ -67,7 +67,7 @@ class AddLine extends Component {
       <div>
               <form method="POST" onSubmit={this.handleSubmit}>
                 <div class="input-group">
-                    <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-cart-plus"></i></button>
+            
                     <select value={this.state.poNo} onChange={this.handleChange} class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
                         <option value="defaut">Choose a purchase</option>
                         {this.state.pos.map((po)=>
@@ -81,7 +81,7 @@ class AddLine extends Component {
                         placeholder="Unit"
                         onChange={this.handleInputChange}
                     />
-
+                    <button class="btn btn-outline-secondary" type="submit">Add to order</button>
                 </div>
               </form>
           </div>

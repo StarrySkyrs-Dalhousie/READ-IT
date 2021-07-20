@@ -10,7 +10,6 @@ import Home from "./pages/client.home.component"
 import Order from "./pages/client.order.component";
 import AuthService from "./services/auth.service";
 import Profile from "./pages/profile.component";
-import Story from "./pages/pdf-story.component";
 import Dashboard from "./pages/agent.dashboard.component"
 import './App.css';
 import SignUp from "./pages/signup.component";
@@ -69,7 +68,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Navbar fixed="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand style={{fontFamily:'Zen Tokyo Zoo'}} href="/">
+        <Navbar.Brand style={{fontFamily:'cursive', fontWeight:'bold', fontSize:'x-large'}} href="/">
           READ📚IT
         </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -103,13 +102,13 @@ class App extends React.Component {
         <div style={{maxWidth:'inherit'}} className="container">
           <BrowserRouter>
             <Switch>
-              <Route exact path="/weekly">
-                <Story/>
-              </Route>
               <Route exact path="/">
                 <Home/>
               </Route>
               <Route exact path="/orders">
+                <Order/>
+              </Route>
+              <Route exact path="/orders/:id">
                 <Order/>
               </Route>
               <Route exact path="/profile">
