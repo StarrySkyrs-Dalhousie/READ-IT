@@ -37,7 +37,7 @@ router.post('/add', function(req, res, next){
 //remove line 
 router.get('/delete/:id', function(req, res, next){
   var {id} = req.params;
-  const sql = "DELETE FROM `line_01` WHERE `line_01`.`lineNo` = 19 AND `line_01`.`poNo` = '"+id+"'"
+  const sql = "DELETE FROM `line_01` WHERE `line_01`.`lineNo` ='"+id+"'"
   con.query(sql, function(err, result){
     if (err) throw err;
     console.log("Delete a line")

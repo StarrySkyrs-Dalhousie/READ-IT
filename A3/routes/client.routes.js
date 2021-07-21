@@ -15,7 +15,7 @@ router.get('/', function(req, res) {
 //return specific client
 router.get('/:id', function(req, res) {
   const { id } = req.params;
-  const sql = 'Select * from `client_01` where clientCompId= "'+id+'"';
+  const sql = 'Select clientCity, clientCompId, clientCompName, moneyOwed, role from `client_01` where clientCompId= "'+id+'"';
   con.query(sql, function(err, result){
       if (err) throw err;
       res.json(result);

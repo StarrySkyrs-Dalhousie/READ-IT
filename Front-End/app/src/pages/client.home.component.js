@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import "./style.css";
 import PartListing from '../components/part-listing.component';
 import Announcement from '../components/jumbotron.component';
 export default class Home extends React.Component {

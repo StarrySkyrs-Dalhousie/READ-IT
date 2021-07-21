@@ -1,11 +1,10 @@
 import axios from 'axios';
 
-const API = "http://localhost:3000/auth/";
+const API = "http://localhost:3000/auth";
 
 class AuthService{
     signin(username, password){
-        console.log("Sigin in with username: " + username+" and password: " + password);
-        return axios.post(API+"signin", {
+        return axios.post(API+"/signin", {
             "username":username,
             "password":password
         })
@@ -19,10 +18,12 @@ class AuthService{
     signout() {
         localStorage.removeItem("client");
     }
-    signup(username, email, password) {
-        return axios.post(API + "signup", {
+    signup(username, password, city, role, name) {
+        return axios.post(API + "/signup", {
           username,
-          email,
+          city,
+          role,
+          name,
           password
         });
     }
