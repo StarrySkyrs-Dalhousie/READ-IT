@@ -2,7 +2,6 @@ import Login from "./pages/signin.component";
 import React from 'react';
 import axios from 'axios';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Nav from 'react-bootstrap/Nav'
@@ -49,20 +48,17 @@ class App extends React.Component {
       this.setState({
         userbalance: response.data
       })
-      console.log(response.data)
     })
   }
   getParts=()=>{
     axios.get('http://localhost:3000/parts')
     .then((response)=>{
       this.setState({parts: response.data});
-      console.log(response.data)
     })
   }
   getPending = (id) => {
     axios.get(`http://localhost:3000/pos/pendings/${id}`)
     .then((response) => {
-        //console.log(response.data);
         this.setState({
             pending : response.data
         })
@@ -71,7 +67,6 @@ class App extends React.Component {
   getProcessed = (id) => {
     axios.get(`http://localhost:3000/pos/processed/${id}`)
     .then((response) => {
-        //console.log(response.data);
         this.setState({
             processed : response.data
         })
@@ -80,7 +75,6 @@ class App extends React.Component {
   getCreated = (id) => {
     axios.get(`http://localhost:3000/pos/created/${id}`)
     .then((response) => {
-        //console.log(response.data);
         this.setState({
             created : response.data
         })
@@ -95,22 +89,22 @@ class App extends React.Component {
     const {currentUser, userbalance, pending, processed} = this.state;
     return (
       <div className="App">
-        <Navbar class="navbar" fixed="top" collapseOnSelect expand="lg">
-        <Navbar.Brand style={{fontFamily:'cursive', fontWeight:'bold', fontSize:'x-large'}} href="/">
+        <Navbar className="navbar" fixed="top" collapseOnSelect expand="lg">
+        <Navbar.Brand style={{fontWeight:'bold', fontSize:'x-large'}} href="/">
           READ📚IT
         </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link className="nav-item" style={{margin:"0px 10px 0px 10px"}} href="/">Books 📖</Nav.Link>
-              <Nav.Link className="nav-item" style={{margin:"0px 10px 0px 10px"}} href="/orders">Orders 📦</Nav.Link>
-              <Nav.Link className="nav-item" style={{margin:"0px 10px 0px 10px"}} href="/about">About us ℹ️</Nav.Link>
-              <Nav.Link className="nav-item" style={{margin:"0px 10px 0px 10px"}} href="/dashboard">Dashboard</Nav.Link>
+              <Nav.Link key="book" className="nav-item" style={{margin:"0px 10px 0px 10px", width:'inherit'}} href="/">Books 📖</Nav.Link>
+              <Nav.Link key="order" className="nav-item" style={{margin:"0px 10px 0px 10px"}} href="/orders">Orders 📦</Nav.Link>
+              <Nav.Link key="about" className="nav-item" style={{margin:"0px 10px 0px 10px"}} href="/about">About us ℹ️</Nav.Link>
+              <Nav.Link key="dashboard" className="nav-item" style={{margin:"0px 10px 0px 10px"}} href="/dashboard">Dashboard</Nav.Link>
             </Nav>
            
             <Nav>
               {this.state.userbalance.map((balance)=>{
-                  return <Nav.Link className="nav-item" style={{margin:"0px 10px 0px 10px"}} href="/profile">💳Balance: ${balance.moneyOwed}</Nav.Link>
+                  return <Nav.Link key="balance" className="nav-item" style={{margin:"0px 10px 0px 10px"}} href="/profile">💰 Balance: $<span style={{fontWeight:"bold"}}>{balance.moneyOwed}</span></Nav.Link>
               })}
               {currentUser ?(
                 <NavDropdown title={this.state.username} id="basic-nav-dropdown" className="justify-content-end">

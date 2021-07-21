@@ -76,8 +76,7 @@ export default class SignUp extends React.Component{
         if (this.checkBtn.context._errors.length === 0) {
             AuthService.signup(this.state.username, this.state.password, this.state.city, this.state.role, this.state.name)
             .then(()=>{
-                //if user registered 
-                window.location.reload();
+              window.location.href = "http://localhost:3001/login";
             },
             error => {
                 const resMessage =
@@ -102,8 +101,8 @@ export default class SignUp extends React.Component{
 render() {
     return (
       <div className="col-md-12">
-        <div style={{background:'transparent', marginBottom: '50px', textAlign:'-webkit-center', marginTop: '80px'}}>
-          <h3 style={{textAlign: 'center', margin:'10px'}}>Login</h3>
+        <div style={{background:'transparent', marginBottom: '50px', textAlign:'-webkit-center', marginTop: '90px'}}>
+          <h3 style={{textAlign: 'center', margin:'10px'}}>Register</h3>
 
           <Form
             onSubmit={this.handleSignup}

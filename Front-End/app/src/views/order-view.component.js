@@ -13,7 +13,6 @@ export default class Order extends React.Component{
     }
     componentDidMount(){
         this.getLine();
-       // setInterval(this.getPOS, 5000); 
     }
     getLine = () => {
         var id = null
@@ -31,15 +30,12 @@ export default class Order extends React.Component{
     render(){
         return (
             <div style={{padding:"10px",margin:'10px', border: '1px solid black'}}  class="row align-items-start">
-    
                         <div class="col">
                         Order#{this.props.id}
                         </div>
                         <div class="col">
                         Price ammount :{this.props.poPrice}
                         </div>
-                 
-                        
                         <div class="col">
                             <OrderDetail 
                                 id={this.props.id}
@@ -47,7 +43,6 @@ export default class Order extends React.Component{
                                 line={this.state.data}
                             />
                         </div>
-              
                         <div class="col">
                         {(this.props.status) === 'Pending' &&
                             <ProcessOrderForm 

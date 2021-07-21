@@ -17,7 +17,6 @@ export default class Home extends React.Component {
         axios.get('http://localhost:3000/parts')
         .then((response)=>{
           this.setState({parts: response.data});
-          console.log(response.data)
         })
       }
 

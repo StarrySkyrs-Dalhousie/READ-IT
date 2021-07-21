@@ -11,7 +11,6 @@ export default class PartListing extends React.Component{
     componentDidMount(){
         axios.get('http://localhost:3000/parts')
         .then((response) => {
-            console.log(response.data);
             this.setState({
                 data : response.data
             })
@@ -19,11 +18,12 @@ export default class PartListing extends React.Component{
     }
     render(){
         return(
-            <div class="container">
-                <div class="row">
+            <div className="container">
+                <div className="row">
                     {this.state.data.map((part, index)=>(
-                       <div class="col-sm-3">
+                       <div key={index} id={index} class="col-sm-3">
                             <Part 
+                                key={part.partNo}
                                 id={part.partNo} 
                                 picture={part.partPicture} 
                                 partId={part.partNo} 

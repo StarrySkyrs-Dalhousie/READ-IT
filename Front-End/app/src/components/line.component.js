@@ -10,7 +10,6 @@ export default class Line extends React.Component{
     }
     componentDidMount(){
         this.getPart();
-        //setInterval(this.getPart, 5000); 
     }
     getPart = () => {
         axios.get(`http://localhost:3000/parts/${this.props.id}`)

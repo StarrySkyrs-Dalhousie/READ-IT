@@ -22,6 +22,7 @@ export default class Part extends React.Component{
             <PartDetails 
                 price={this.props.currentPrice} 
                 id={this.props.id} 
+                key={this.props.id}
                 user_id={id}
                 picture={this.props.picture} 
                 name={this.props.partName} 
@@ -44,7 +45,7 @@ function MyVerticallyCenteredModal(props) {
         </Modal.Header>
         <Modal.Body>
         <img width="200px" 
-                class="card-image-top" 
+                className="card-image-top" 
                  src={props.picture} 
                 alt="cube"/>
           <h4>Description</h4>
@@ -65,16 +66,14 @@ function MyVerticallyCenteredModal(props) {
   
     return (
       <>
-        <div style={{marginBottom:'20px', radius:"0px"}} onClick={() => setModalShow(true)} class="card">
-            <div style={{}} class="card-body">
+        <div key={props.id} id={props.id} style={{marginBottom:'20px', radius:"0px"}} onClick={() => setModalShow(true)} className="card">
+            <div style={{}} className="card-body">
             <img width="200px" 
-                class="card-image-top" 
+                className="card-image-top" 
                 src={props.picture} 
                 alt={props.name}/>
             </div>
         </div>
-        
-  
         <MyVerticallyCenteredModal
           show={modalShow}
           name={props.name}

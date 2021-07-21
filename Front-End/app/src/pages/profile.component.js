@@ -37,7 +37,7 @@ export default class Profile extends Component {
         <div>
           <div className="spacer">
           <br></br>
-            <img src={avatar}></img>
+            <img src={avatar} alt="profile pic"></img>
             <br></br>
             <strong>{currentUser.username}</strong>
             {this.props.balance.map((balance)=>{
