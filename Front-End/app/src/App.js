@@ -10,6 +10,7 @@ import Home from "./pages/client.home.component"
 import Order from "./pages/client.order.component";
 import AuthService from "./services/auth.service";
 import Profile from "./pages/profile.component";
+import Welcome from "./pages/welcome.component";
 import Dashboard from "./pages/agent.dashboard.component"
 import './App.css';
 import SignUp from "./pages/signup.component";
@@ -21,8 +22,12 @@ class App extends React.Component {
     this.state = {
       currentUser : undefined,
       username : "",
+      user: "",
       parts:[],
+      userbalance: [],
       orders: [],
+      pending: [],
+      processed: [],
     };
   }
   componentDidMount() {
@@ -32,7 +37,19 @@ class App extends React.Component {
         currentUser: user,
         username: user.username
       });
+      this.getUserInfo(user.id)
+      this.getPending();
+      this.getProcessed();
     }
+  }
+  getUserInfo=(id)=>{
+    axios.get(`http://localhost:3000/clients/${id}`)
+    .then((response)=>{
+      this.setState({
+        userbalance: response.data
+      })
+      console.log(response.data)
+    })
   }
   getParts=()=>{
     axios.get('http://localhost:3000/parts')
@@ -65,23 +82,26 @@ class App extends React.Component {
     window.location.href = "http://localhost:3001/login";
   }
   render(){
-    const {currentUser} = this.state;
+    const {currentUser, userbalance, pending, processed} = this.state;
     return (
       <div className="App">
-        <Navbar fixed="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar class="navbar" fixed="top" collapseOnSelect expand="lg">
         <Navbar.Brand style={{fontFamily:'cursive', fontWeight:'bold', fontSize:'x-large'}} href="/">
           READ📚IT
         </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link style={{margin:"0px 10px 0px 10px"}} href="/">Books 📖</Nav.Link>
-              <Nav.Link style={{margin:"0px 10px 0px 10px"}} href="/orders">Orders 📦</Nav.Link>
-              <Nav.Link style={{margin:"0px 10px 0px 10px"}} href="/about">About us ℹ️</Nav.Link>
-              <Nav.Link style={{margin:"0px 10px 0px 10px"}} href="/dashboard">Dashboard</Nav.Link>
+              <Nav.Link className="nav-item" style={{margin:"0px 10px 0px 10px"}} href="/">Books 📖</Nav.Link>
+              <Nav.Link className="nav-item" style={{margin:"0px 10px 0px 10px"}} href="/orders">Orders 📦</Nav.Link>
+              <Nav.Link className="nav-item" style={{margin:"0px 10px 0px 10px"}} href="/about">About us ℹ️</Nav.Link>
+              <Nav.Link className="nav-item" style={{margin:"0px 10px 0px 10px"}} href="/dashboard">Dashboard</Nav.Link>
             </Nav>
            
             <Nav>
+              {this.state.userbalance.map((balance)=>{
+                  return <Nav.Link className="nav-item" style={{margin:"0px 10px 0px 10px"}} href="/profile">💳Balance: ${balance.moneyOwed}</Nav.Link>
+              })}
               {currentUser ?(
                 <NavDropdown title={this.state.username} id="basic-nav-dropdown" className="justify-content-end">
                 <NavDropdown.Item href="profile">Profile</NavDropdown.Item>
@@ -106,6 +126,9 @@ class App extends React.Component {
               <Route exact path="/">
                 <Home/>
               </Route>
+              <Route exact path="/welcome">
+                <Welcome/>
+              </Route>
               <Route exact path="/orders">
                 <Order/>
               </Route>
@@ -113,7 +136,7 @@ class App extends React.Component {
                 <Order/>
               </Route>
               <Route exact path="/profile">
-                <Profile/>
+                <Profile balance={userbalance} pending={pending} processed={processed}/>
               </Route>
               <Route exact path="/login">
                 <Login/>

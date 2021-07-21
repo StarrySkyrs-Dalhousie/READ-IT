@@ -8,17 +8,12 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
-    "mgr-pdf-viewer-react": "^1.0.3",
-    "pdf-viewer-reactjs": "^2.2.3",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",
-    "react-epub-viewer": "^0.1.8",
-    "react-pdf-viewer": "^0.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-validation": "^3.0.7",
-    "reactjs-pdf-reader": "^1.0.12",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

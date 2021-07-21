@@ -32,7 +32,7 @@ export default class OrderListing extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={{marginTop:'100px'}}>
     
         {this.state.orders.length > 0 ? (
           <ul class="list-group">
@@ -181,7 +181,7 @@ export default class OrderListing extends React.Component {
                 </clipPath>
               </defs>
             </svg>
-            <h2>404 No order found</h2>
+            <h2>No order found</h2>
           </div>
         )}
         <Create id={this.state.id} />

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import "./style.css";
 import AuthService from "../services/auth.service";
+import avatar from "../Animation/avatar.png"
+import "./welcome.css";
 
 export default class Profile extends Component {
   constructor(props) {
@@ -29,20 +31,32 @@ export default class Profile extends Component {
     const { currentUser } = this.state;
 
     return (
-      <div className="container">
+      <div style={{textAlign: '-webkit-center'}} className="container">
         {(this.state.userReady) ?
         <div>
-        <header className="jumbotron">
-          <h3>
+          <div className="spacer">
+          <br></br>
+            <img src={avatar}></img>
+            <br></br>
             <strong>{currentUser.username}</strong>
-          </h3>
-        </header>
+            {this.props.balance.map((balance)=>{
+              return <div>
+                <p>{balance.clientCity}</p>
+              </div>
+            })}
+            {this.props.balance.map((balance)=>{
+              return <div style={{width:"300px"}} className="card">
+                <p style={{padding:"25px"}}>Balance: ${balance.moneyOwed}</p>
+              </div>
+            })}
+            <div style={{width:"300px", marginTop:'20px'}} className="card">
+                <p style={{paddingTop:"25px"}}>Orders</p>
+                <p style={{padding:"25px"}}>Pending: {this.props.pending.length}</p>
+                <p style={{padding:"25px"}}>Processed: {this.props.processed.length}</p>
+            </div>
 
-        <p>
-          <strong>Id:</strong>{" "}
-          {currentUser.id}
-        </p>
-        
+          </div>
+
       </div>: null}
       </div>
     );

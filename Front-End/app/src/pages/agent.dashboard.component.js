@@ -67,41 +67,7 @@ export default class Dashboard extends React.Component {
                   </tr>
                 );
               })}
-              <tr>
-                <td>1,001</td>
-                <td>ABC Company</td>
-                <td>In Process</td>
-                <td>$500.00</td>
-                <td>Placed</td>
-              </tr>
-              <tr>
-                <td>1,002</td>
-                <td>DEF Company</td>
-                <td>In Process</td>
-                <td>$500.00</td>
-                <td>Placed</td>
-              </tr>
-              <tr>
-                <td>1,003</td>
-                <td>GHI Company</td>
-                <td>In Process</td>
-                <td>$500.00</td>
-                <td>Placed</td>
-              </tr>
-              <tr>
-                <td>1,003</td>
-                <td>JKL Company</td>
-                <td>In Process</td>
-                <td>$500.00</td>
-                <td>Placed</td>
-              </tr>
-              <tr>
-                <td>1,004</td>
-                <td>MNO Company</td>
-                <td>In Process</td>
-                <td>$500.00</td>
-                <td>Placed</td>
-              </tr>
+            
             </tbody>
           </table>
         </div>
