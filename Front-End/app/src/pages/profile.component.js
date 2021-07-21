@@ -57,6 +57,16 @@ export default class Profile extends Component {
                 <Col>Processed</Col>
               </Row>
             </div>
+            <div style={{ marginTop:'20px'}} >
+            <Row>
+                <Col>
+                  <button style={{padding: '20px'}} className="nav-item">Make Payment</button>
+                </Col>
+                <Col>
+                  <button style={{padding: '20px'}} className="nav-item">Contact Support</button>
+                </Col>
+              </Row>
+            </div>
 
           </div>
 

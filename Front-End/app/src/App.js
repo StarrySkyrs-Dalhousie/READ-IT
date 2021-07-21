@@ -104,7 +104,7 @@ class App extends React.Component {
            
             <Nav>
               {this.state.userbalance.map((balance)=>{
-                  return <Nav.Link key="balance" className="nav-item" style={{margin:"0px 10px 0px 10px"}} href="/profile">💰 Balance: $<span style={{fontWeight:"bold"}}>{balance.moneyOwed}</span></Nav.Link>
+                  return <Nav.Link key="balance" className="nav-item" style={{margin:"0px 10px 0px 10px", textAlign:"-webkit-center"}} href="/profile">💰 Balance: $<span style={{fontWeight:"bold"}}>{balance.moneyOwed}</span></Nav.Link>
               })}
               {currentUser ?(
                 <NavDropdown title={this.state.username} id="basic-nav-dropdown" className="justify-content-end">

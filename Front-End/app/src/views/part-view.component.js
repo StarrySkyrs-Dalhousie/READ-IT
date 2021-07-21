@@ -46,7 +46,7 @@ function MyVerticallyCenteredModal(props) {
         <Modal.Body>
         <img width="200px" 
                 className="card-image-top" 
-                 src={props.picture} 
+                 src={'welcome/'+props.picture} 
                 alt="cube"/>
           <h4>Description</h4>
           <p>
