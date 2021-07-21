@@ -70,7 +70,7 @@ function MyVerticallyCenteredModal(props) {
             <div style={{}} className="card-body">
             <img width="200px" 
                 className="card-image-top" 
-                src={props.picture} 
+                src={'welcome/'+props.picture}
                 alt={props.name}/>
             </div>
         </div>
