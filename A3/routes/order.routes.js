@@ -94,6 +94,33 @@ router.post('/add', function(req, res, next){
     res.json(result);
   });
 })
+router.get('/processed/:id', function(req, res, next){
+  const { id } = req.params;
+  var clientCompId = ""+req.body.clientCompId
+  const sql = "UPDATE `purchase order_01` SET `status` = 'Processed' WHERE `purchase order_01`.`poNo` = '"+id+"'"
+  con.query(sql, function(err, result){
+    if (err) throw err;
+    res.json(result);
+  });
+})
+router.get('/created/:id', function(req, res, next){
+  const { id } = req.params;
+  var clientCompId = ""+req.body.clientCompId
+  const sql = "UPDATE `purchase order_01` SET `status` = 'Processed' WHERE `purchase order_01`.`poNo` = '"+id+"'"
+  con.query(sql, function(err, result){
+    if (err) throw err;
+    res.json(result);
+  });
+})
+router.get('/pendings/:id', function(req, res, next){
+  const { id } = req.params;
+  var clientCompId = ""+req.body.clientCompId
+  const sql = "UPDATE `purchase order_01` SET `status` = 'Processed' WHERE `purchase order_01`.`poNo` = '"+id+"'"
+  con.query(sql, function(err, result){
+    if (err) throw err;
+    res.json(result);
+  });
+})
 
 /**
  * 

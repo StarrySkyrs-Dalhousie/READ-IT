@@ -78,6 +78,10 @@ router.get('/order/empty/:id', function(req, res, next) {
     });
 });
 //const sql1= "CALL lineRemove('"+id+"');"
-
+// const sql1 = "Select * from `purchase order_01` where status='Processed' AND clientCompId='" + id + ""
+//   con.query(sql1, function(err, result){
+//       if (err) throw err;
+//       res.json(result);
+//   });
 
 module.exports = router;

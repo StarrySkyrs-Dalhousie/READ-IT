@@ -28,6 +28,7 @@ class App extends React.Component {
       orders: [],
       pending: [],
       processed: [],
+      created: [],
     };
   }
   componentDidMount() {
@@ -38,8 +39,8 @@ class App extends React.Component {
         username: user.username
       });
       this.getUserInfo(user.id)
-      this.getPending();
-      this.getProcessed();
+      this.getPending(user.id);
+      this.getProcessed(user.id);
     }
   }
   getUserInfo=(id)=>{
@@ -58,8 +59,8 @@ class App extends React.Component {
       console.log(response.data)
     })
   }
-  getPending = () => {
-    axios.get('http://localhost:3000/pos/pending')
+  getPending = (id) => {
+    axios.get(`http://localhost:3000/pos/pendings/${id}`)
     .then((response) => {
         //console.log(response.data);
         this.setState({
@@ -67,12 +68,21 @@ class App extends React.Component {
         })
     });
   }
-  getProcessed = () => {
-    axios.get('http://localhost:3000/pos/processed')
+  getProcessed = (id) => {
+    axios.get(`http://localhost:3000/pos/processed/${id}`)
     .then((response) => {
         //console.log(response.data);
         this.setState({
             processed : response.data
+        })
+    });
+  }
+  getCreated = (id) => {
+    axios.get(`http://localhost:3000/pos/created/${id}`)
+    .then((response) => {
+        //console.log(response.data);
+        this.setState({
+            created : response.data
         })
     });
   }

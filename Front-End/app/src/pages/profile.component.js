@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import "./style.css";
+import {Row, Col} from 'react-bootstrap/'
 import AuthService from "../services/auth.service";
 import avatar from "../Animation/avatar.png"
 import "./welcome.css";
@@ -50,9 +51,11 @@ export default class Profile extends Component {
               </div>
             })}
             <div style={{width:"300px", marginTop:'20px'}} className="card">
-                <p style={{paddingTop:"25px"}}>Orders</p>
-                <p style={{padding:"25px"}}>Pending: {this.props.pending.length}</p>
-                <p style={{padding:"25px"}}>Processed: {this.props.processed.length}</p>
+            <Row>
+                <Col>Open</Col>
+                <Col>Pending</Col>
+                <Col>Processed</Col>
+              </Row>
             </div>
 
           </div>
