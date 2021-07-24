@@ -76,6 +76,7 @@ export default class SignUp extends React.Component{
         if (this.checkBtn.context._errors.length === 0) {
             AuthService.signup(this.state.username, this.state.password, this.state.city, this.state.role, this.state.name)
             .then(()=>{
+              alert("Successfully created a new user!, click okay to login");
               window.location.href = "http://localhost:3001/login";
             },
             error => {
@@ -102,7 +103,8 @@ render() {
     return (
       <div className="col-md-12">
         <div style={{background:'transparent', marginBottom: '50px', textAlign:'-webkit-center', marginTop: '90px'}}>
-          <h3 style={{textAlign: 'center', margin:'10px'}}>Register</h3>
+        <h3>READ📚IT</h3>
+          <p style={{textAlign: 'center', margin:'10px'}}>Create an account</p>
 
           <Form
             onSubmit={this.handleSignup}
@@ -111,76 +113,57 @@ render() {
             }}
           >
             <div className="form-group">
-              <label htmlFor="username">Username</label>
               <Input
                 type="text"
                 className="form-control"
-                name="username"
+                name="Username"
                 placeholder="Username"
-                style={{width:'250px'}}
+                style={{width: '300px', height:'58px'}}
                 value={this.state.username}
                 onChange={this.onChangeUsername}
                 validations={[required]}
               />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="username">Name</label>
               <Input
                 type="text"
                 className="form-control"
-                name="username"
+                name="Name"
                 placeholder="Name"
-                style={{width:'250px'}}
+                style={{width: '300px', height:'58px'}}
                 value={this.state.name}
                 onChange={this.onChangeName}
                 validations={[required]}
               />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="username">City</label>
               <Input
                 type="text"
                 className="form-control"
-                name="username"
-                style={{width:'250px'}}
+                name="city"
+                style={{width: '300px', height:'58px'}}
                 placeholder="ex: Halifax"
                 value={this.state.city}
                 onChange={this.onChangeCity}
                 validations={[required]}
               />
-            </div>
-            <div className="form-group">
-              <label htmlFor="username">Role</label>
               <Input
                 type="text"
                 className="form-control"
-                name="username"
+                name="role"
                 placeholder="client or agent"
-                style={{width:'250px'}}
+                style={{width: '300px', height:'58px'}}
                 value={this.state.role}
                 onChange={this.onChangeRole}
                 validations={[required]}
               />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
               <Input
                 type="password"
                 className="form-control"
                 name="password"
-                style={{width:'250px'}}
+                style={{width: '300px', height:'58px'}}
                 value={this.state.password}
                 onChange={this.onChangePassword}
                 validations={[required]}
               />
-            </div>
-
-            <div className="form-group">
               <button
-              style={{width: 'inherit'}}
+              style={{width: '300px', height:'58px', marginTop:'20px'}}
                 className="btn btn-primary btn-block"
                 disabled={this.state.loading}
               >
@@ -190,7 +173,6 @@ render() {
                 <span>SignUp</span>
               </button>
             </div>
-
             {this.state.message && (
               <div className="form-group">
                 <div className="alert alert-danger" role="alert">

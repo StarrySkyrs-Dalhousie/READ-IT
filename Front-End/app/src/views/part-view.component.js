@@ -10,8 +10,6 @@ export default class Part extends React.Component{
           pos: [],
         };
     }
-        
-
     render(){
         const currentUser = AuthService.fetchCurrentUser();
         var id = null;
@@ -67,8 +65,9 @@ function MyVerticallyCenteredModal(props) {
     return (
       <>
         <div key={props.id} id={props.id} style={{marginBottom:'20px', radius:"0px"}} onClick={() => setModalShow(true)} className="card">
-            <div style={{}} className="card-body">
-            <img width="200px" 
+            <div>
+            <img 
+                style={{maxWidth:'300px', minWidth:'270px'}}
                 className="card-image-top" 
                 src={'welcome/'+props.picture}
                 alt={props.name}/>

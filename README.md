@@ -45,3 +45,22 @@ Sijia Han @sijia
 6. Enter ‘npm start’ to start the application process.
 7. Server will be running on http://localhost:3000/  
 8. Type in http://localhost:3000/ in the link + your desired endpoint.
+
+# Running the Application's API (A4)
+
+Requirements: 
+-  Node.js 
+-  Cisco VPN Networks.
+-  The app requires running the server first (which is A3), then the Front-end.
+-  The server uses port 3000, and the Front-end will be automatically set t0 port 3001.
+
+1. Clone the repository onto the local machine (https://git.cs.dal.ca/apaul/4140s21_group1.git).
+2. Connect to Dalhousie server with Cisco VPN Networks. 
+3. Open a command-line tool. 
+4. Change to A3 folder using the command ‘cd A3’.
+5. Install Node.js if your computer doesn't have it, using ‘npm install’ to install new dependencies. 
+6. Enter ‘npm start’ to start the application process.
+7. Server will be running on http://localhost:3000/. 
+8. Open a new terminal and cd to Front-end/app.
+9. Install the dependencies using “npm install”. 
+10. Then do "npm start” to start the front-end application.  

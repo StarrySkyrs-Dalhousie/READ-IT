@@ -85,8 +85,9 @@ export default class Login extends Component {
   render() {
     return (
       <div className="col-md-12">
-        <div style={{background:'transparent', marginBottom: '50px', textAlign:'-webkit-center', marginTop: '150px'}} >
-          <h3 style={{textAlign: 'center', margin:'10px'}}>Login</h3>
+        <div style={{background:'transparent', textAlign:'-webkit-center', marginTop: '150px'}} >
+          <h3>READ📚IT</h3>
+          <p style={{textAlign: 'center', margin:'10px'}}>Please sign in</p>
 
           <Form
             onSubmit={this.handleLogin}
@@ -95,25 +96,22 @@ export default class Login extends Component {
             }}
           >
             <div className="form-group">
-              <label htmlFor="username">Username</label>
               <Input
                 type="text"
                 className="form-control"
                 name="username"
-                style={{width:'200px'}}
+                style={{width:'300px', height:'58px'}}
+                placeholder="Username"
                 value={this.state.username}
                 onChange={this.onChangeUsername}
                 validations={[required]}
               />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
               <Input
                 type="password"
                 className="form-control"
                 name="password"
-                style={{width:'200px'}}
+                placeholder="Password"
+                style={{width:'300px', height:'58px', borderRadius:'0px'}}
                 value={this.state.password}
                 onChange={this.onChangePassword}
                 validations={[required]}
@@ -122,7 +120,7 @@ export default class Login extends Component {
 
             <div className="form-group">
               <button
-                style={{width: 'inherit'}}
+                 style={{width:'300px', height:'58px'}}
                 className="btn btn-primary btn-block"
                 disabled={this.state.loading}
               >
