@@ -83,6 +83,11 @@ class App extends React.Component {
   }
   render() {
     const { currentUser, userbalance, pending, processed } = this.state;
+    const user = AuthService.fetchCurrentUser();
+    var role = "";
+    if (user !== null) {
+      role = user.roles;
+    }
     return (
       <div className="App">
         <div style={{ maxWidth: "inherit" }} className="container">
@@ -134,13 +139,15 @@ class App extends React.Component {
                       >
                         About us ℹ️
                       </Nav.Link>
-                      <Nav.Link
-                        key="dashboard"
-                        style={{ margin: "0px 10px 0px 10px" }}
-                        href="/dashboard"
-                      >
-                        Dashboard
-                      </Nav.Link>
+                      {role === "agent" && (
+                        <Nav.Link
+                          key="dashboard"
+                          style={{ margin: "0px 10px 0px 10px" }}
+                          href="/dashboard"
+                        >
+                          Dashboard
+                        </Nav.Link>
+                      )}
                     </Nav>
 
                     <Nav>
@@ -205,13 +212,14 @@ class App extends React.Component {
                 </Route>
                 <Route exact path="/profile">
                   <Profile
+                    role={role}
                     balance={userbalance}
                     pending={pending}
                     processed={processed}
                   />
                 </Route>
                 <Route exact path="/dashboard">
-                  <Dashboard />
+                  <Dashboard user={user} />
                 </Route>
                 <Route exact path="/about">
                   <About />

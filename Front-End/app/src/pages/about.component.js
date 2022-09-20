@@ -82,7 +82,7 @@ export default class About extends React.Component {
                     globally, we cannot ensure when your orders are going to
                     arrive. Estimated date of arrivals change accordingly.
                   </ReactBootstrap.Card.Body>
-                </ReactBootstrap.Accordion.Collapse>
+                </ReactBootstrap.Accordion.Collapse>––
               </ReactBootstrap.Card>
             </ReactBootstrap.Accordion>
           </div>

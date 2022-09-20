@@ -21,6 +21,17 @@ router.get('/:id', function(req, res, next) {
   });
 });
 
+//UPDATE `part_01` SET `currentPrice` = '35.99' WHERE `part_01`.`partNo` = 14
+router.get('/pricechange/:id', function(req, res){
+  const {id} = req.params;
+  const sql = "UPDATE `part_01` SET `currentPrice` = '"+req.body.price+"' WHERE `part_01`.`partNo` = "+id+""
+  con.query(sql, function(err, res) {
+    if(err) throw err;
+    res.json(result);
+  })
+})
+
+
 //update part 
 router.get('/update/:id', function(req, res, next){
   const { id } = req.params;
@@ -37,6 +48,7 @@ router.get('/update/:id', function(req, res, next){
     res.json(result);
   });
 })
+
 
 //add new part
  router.post('/add', function(req, res, next){

@@ -26,11 +26,14 @@ export default class CancelOrderForm extends React.Component{
           console.error(err);
         });
     }
-   
+    
       render(){
           return(
               <div>
-                   <a href="/orders" onClick={this.handleSubmit} class="btn btn-warning btn-round">ABORT</a>
+                  {this.props.status === 'Shipped' && <a href="/orders" onClick={this.handleSubmit} class="btn btn-warning btn-round">Cancel ($5 fees)</a>}
+                  {this.props.status === 'Created' && <a href="/orders" onClick={this.handleSubmit} class="btn btn-warning btn-round">Cancel (No fees)</a>}
+                  {this.props.status === 'Pending' && <a href="/orders" onClick={this.handleSubmit} class="btn btn-warning btn-round">Cancel (No fees)</a>}
+                  {this.props.status === 'Processed' && <a href="/orders" onClick={this.handleSubmit} class="btn btn-warning btn-round">Cancel (No fees)</a>}
               </div>
                  
           );

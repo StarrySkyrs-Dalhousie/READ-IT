@@ -71,6 +71,7 @@ function MyVerticallyCenteredModal(props) {
                 className="card-image-top" 
                 src={'welcome/'+props.picture}
                 alt={props.name}/>
+                ${props.price}
             </div>
         </div>
         <MyVerticallyCenteredModal

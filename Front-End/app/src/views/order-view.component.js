@@ -4,6 +4,7 @@ import {Modal, Button, ListGroup} from 'react-bootstrap/'
 import ProcessOrderForm from '../forms/ProcessOrderForm';
 import CancelOrderForm from "../forms/CancelOrder";
 import RemoveLine from "../forms/RemoveLine";
+import ShippingOrder from "../forms/ShipOrderForm";
 export default class Order extends React.Component{
     constructor(props){
         super(props);
@@ -31,41 +32,61 @@ export default class Order extends React.Component{
         return (
             <div style={{padding:"10px",margin:'10px', border: '1px solid black'}}  class="row align-items-start">
                         <div class="col">
-                        Order#{this.props.id}
+                        OrderID: #{this.props.id}
+                        <br/>
+                        Status: {this.props.status}
                         </div>
                         <div class="col">
                         Price ammount :{this.props.poPrice}
                         </div>
                         <div class="col">
-                            <OrderDetail 
-                                id={this.props.id}
-                                poNo={this.props.id}
-                                line={this.state.data}
+                        {(this.props.status) === 'Pending' && (this.props.option) !=='false' && (this.props.option) !=='false' &&
+                            <ProcessOrderForm 
+                            clientCompId={this.props.clientCompId} 
+                            poNo={this.props.id}
+                        />
+                        }
+                        {(this.props.status) === 'Created' && (this.props.option) !=='false' && (this.props.option) !=='false' &&
+                            <ProcessOrderForm 
+                            clientCompId={this.props.clientCompId} 
+                            poNo={this.props.id}
+                        />
+                        }
+                        {(this.props.status) !== 'Shipped' && 
+                             <OrderDetail 
+                             id={this.props.id}
+                             poNo={this.props.id}
+                             line={this.state.data}
                             />
-                        </div>
-                        <div class="col">
-                        {(this.props.status) === 'Pending' &&
-                            <ProcessOrderForm 
-                            clientCompId={this.props.clientCompId} 
-                            poNo={this.props.id}
-                        />
                         }
-                        {(this.props.status) === 'Created' &&
-                            <ProcessOrderForm 
-                            clientCompId={this.props.clientCompId} 
-                            poNo={this.props.id}
-                        />
+                    
+                        {this.props.edit==='true' && this.props.status !=='Shipped' && (this.props.option) !=='false' &&
+                            <ShippingOrder
+                                clientCompId={this.props.clientCompId} 
+                                poNo={this.props.id}
+                            />
                         }
-                        {(this.props.status) === 'Cancelled' &&
+                        {(this.props.status) === 'Cancelled' && (this.props.option) !=='false' &&
                             <ProcessOrderForm 
                             clientCompId={this.props.clientCompId} 
                             poNo={this.props.id}/>
                         }
-                        {(this.props.status) === 'Processed' &&
+                        {this.props.edit!='true' && (this.props.status) === 'Shipped' && (this.props.option) !=='false' &&
                             <CancelOrderForm 
                             clientCompId={this.props.clientCompId} 
                             poNo={this.props.id}
+                            status={this.props.status}
                         />
+                        }
+                        {this.props.edit!='true' && (this.props.status) === 'Processed' && (this.props.option) !=='false' &&
+                            <CancelOrderForm 
+                            clientCompId={this.props.clientCompId} 
+                            status={this.props.status}
+                            poNo={this.props.id}
+                        />
+                        }
+                        {(this.props.status) === 'Shipped' &&
+                            <p>Order incoming</p>
                         }
                         </div>
                         <div class="col">
@@ -109,7 +130,7 @@ function MyVerticallyCenteredModal(props) {
     return (
       <>
         <div onClick={() => setModalShow(true)}>
-            <Button>EDIT</Button>
+            <Button className="btn-info">EDIT</Button>
         </div>
         
   

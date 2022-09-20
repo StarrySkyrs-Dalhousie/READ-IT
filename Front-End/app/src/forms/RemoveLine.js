@@ -27,7 +27,7 @@ export default class RemoveLine extends React.Component{
       render(){
           return(
               <div>
-                   <a href="/orders" onClick={this.handleSubmit} class="btn btn-warning btn-round">X</a>
+                   <a href="/orders" onClick={this.handleSubmit} class="btn btn-danger btn-round">X</a>
               </div>
                  
           );

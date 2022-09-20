@@ -34,7 +34,7 @@ export default class ProcessOrderForm extends React.Component {
         <a
           href="/orders"
           onClick={this.handleSubmit}
-          class="btn btn-primary btn-round"
+          class="btn btn-success btn-round"
         >
           PROCESS
         </a>

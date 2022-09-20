@@ -80,7 +80,16 @@ router.get('/process/:id', function(req, res, next){
     res.json(result);
   });
 })
-
+//update purchase order to processed
+router.get('/ship/:id', function(req, res, next){
+  const { id } = req.params;
+  var clientCompId = ""+req.body.clientCompId
+  const sql = "UPDATE `purchase order_01` SET `status` = 'Shipped' WHERE `purchase order_01`.`poNo` = '"+id+"'"
+  con.query(sql, function(err, result){
+    if (err) throw err;
+    res.json(result);
+  });
+})
 
 //creating new purchase order with default set at 0.00 poPrice and date as current date
 router.post('/add', function(req, res, next){

@@ -13,12 +13,7 @@ body{
   font-family: 'Roboto', sans-serif;
   color: black;
 }
-.nav-item{
-  border: 2px solid;
-  border-radius: 13px;
-  box-shadow: 4px 4px 2px;
-  margin:5px;
-}
+
 a{
   color:black;
 }

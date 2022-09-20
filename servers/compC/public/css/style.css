@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+    font-family: 'Roboto', sans-serif;
+}
+.container{
+    height:100vh;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+.button{
+    padding: 10px;
+    border: 1px solid;
+    box-shadow: 5px 10px;
+}
+#endpoints{
+    text-align: start;
+}
+.button:hover{
+    cusor: pointer; 
+}
+/* body{
+    background-image: url('../assets/undraw_factory_dy0a\ 1\ \(1\).svg');
+    background-size: cover;
+    background-position: center center;
+} */
+body{
+    height: 100vh;
+}
+
+#whole_truck {
+    animation-name: car;
+    animation-timing-function: linear;
+    animation-duration:  7s;
+    animation-iteration-count: infinite;
+  }
+#wood{
+    animation-name: swing;
+    animation-timing-function: linear;
+    animation-duration:  4s;
+    animation-iteration-count: infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+svg{
+    width:100vh;
+    height: 50vh;
+}
+.annouce{
+    text-align: center;
+    font-size: large;
+}
+.contact{
+    margin-top: 40px;
+}
+
+.big-text{
+    font-size: xxx-large;
+    margin: 10px;
+}
+.day-c, .hour-c, .min-c, .sec-c {
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+    border: 2px solid;
+}
+.main{
+    text-align: center;
+    height: 50vh;
+}
+.countdown-container{
+    display: flex;
+    place-content: center;
+    margin: 60px;
+}
+@keyframes car {
+    0% {
+        transform: translateX(900px);
+    }
+    70%{
+        transform: translateX(-200px);
+    }
+    100% {
+        transform: translateX(-600px);
+    }
+  }
+@keyframes swing {
+    0% {
+        transform: translate(0px) rotate(0deg);
+
+    }
+    25%{
+        transform: translate(-5.5px) rotate(8deg);
+    }
+    70%{
+        transform: translate(5.5px) rotate(-8deg);
+    }
+
+    100% {
+        transform: translate(0px) rotate(0deg);
+    }
+}
